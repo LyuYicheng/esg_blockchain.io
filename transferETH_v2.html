@@ -110,6 +110,12 @@
                     <p id="contract">Contract: </p>-->
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    <button id="startCamera" style="font-size: 2rem">開啟相機</button>
+                    <button id="stopCamera" onclick="stopCamera()" style="font-size: 2rem">關閉相機</button>
+                    <video id="cameraView" autoplay></video>
+                    <p id="QRresult" style="font-size: 2rem">QRresult</p>
+                    <p id="pageURL" style="font-size: 2rem">Current page</p>
+                    <script src="js/camera.js" type="text/javascript"></script>
                     <form style="font-size: 2rem">
                         <div class="form-group">
                             <label for="TransAcc">請輸入要轉入乙太幣的帳號： &nbsp;&nbsp;</label>
@@ -118,13 +124,6 @@
                             <input type="tel" class="form-control" name="TransAccNum" id="TransAccNum" placeholder="10000" />
                         </div><br />
                     </form>
-                    <button id="startCameraTransETH" value="0" style="font-size: 2rem">開啟相機</button>
-                    <button id="stopCamera" onclick="stopCamera()" style="font-size: 2rem">關閉相機</button>
-                    <video id="cameraView" autoplay></video>
-                    <p id="QRresult" style="font-size: 2rem">QRresult</p>
-                    <script src="js/camera.js" type="text/javascript"></script>
-
-
                     <button onclick="transferEthButton()" id="transferEthButton" style="font-size: 2rem" disabled>轉帳</button>
                     <p id="transferETH" style="font-size: 2rem"></p>
                 </div>
