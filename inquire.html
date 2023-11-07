@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- -->
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=divice-width, initial-scale=1, shrink-to-fit=no">--> <!--指定螢幕寬度為裝置寬度，讓網頁載入初始縮放比例為100%-->
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <!--清除快取-->
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <!--標題-->
+    <!--Bootstrap4套件-->
+    <link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Bootstrap4/js/jquery-3.7.0.min.js"></script>
+    <script src="Bootstrap4/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <!--DAPP套件-->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="text/javascript"></script>
+    <script src="js/function.js" type="text/javascript"></script>
+    <script src="js/contract.js" type="text/javascript"></script>
+</head>
+
+<body style="background-color:#FFFACD">
+    <div class="text-center">
+        <a href="index_v2.html" title="上一頁">
+            <img src="icon/back.png" class="float-lg-start float-start" style="width:30px" alt="back" />
+        </a>
+        <h1 class="text-success mt-3">
+            BCTIS 查詢餘額
+        </h1>
+    </div>
+
+    <div class="container col-12 col-lg-12">
+        <div class="row">
+            <div class="col-lg-1 mt-3"></div>
+            <div class="col-12 col-lg-10 mt-3">
+                <form>
+                    <div class="form-group">
+                        <label for="TransAcc">請輸入要查詢碳權的帳號： &nbsp;&nbsp;</label>
+                        <input type="tel" class="form-control" name="TransAcc" id="TransAcc" placeholder="eg：0xF66506386F97B164d8026CeefaF2F6F338D3C359" /><br>
+                    </div><br />
+                    <input type="button" value="查詢" onclick="processFormData();" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--上面區塊要更改一下-->
+    <div class="col-12 col-lg-12 text-primary d-flex justify-content-center fixed-bottom">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <a href="introduction.html">關於我們</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -5,35 +5,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=divice-width, initial-scale=1, shrink-to-fit=no"> <!--指定螢幕寬度為裝置寬度，讓網頁載入初始縮放比例為100%-->
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <!--清除快取-->
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
-
-    <title>Welcome</title>
+    <!--標題-->
+    <title>BCTIS</title>
 
     <link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
     <script src="Bootstrap4/js/jquery-3.7.0.min.js"></script>
     <script src="Bootstrap4/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <!-- <script src="script.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/library.js"></script>
 </head>
 
-    <body>
-    <div class="container">
-        <a href="http://www.facebook.com/DTCbook" target="_blank" class="btn btn-primary">DCT</a>
+<body style="background-color:#FFFACD">
+
+    <!--
+    <div class="row">
+        <div class="col">
+            <div style="width:500px;" id="reader"></div>
+        </div>
+        <div class="col" style="padding:30px;">
+            <h4>SCAN RESULT</h4>
+            <div id="result">Result Here</div>
+        </div>
     </div>
 
-    <div style="margin:15px;">
-        <h1 class="display-4"> 123123</h1>
-        <h1 class="display-3"> 123123</h1>
-        <h1 class="display-2"> 123123</h1>
-        <h1 class="display-1"> 123123</h1>
-    </div>
-    
+    <script type="text/javascript">
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById('result').innerHTML = '<span class="result">' + qrCodeMessage + '</span>';
+        }
+        function onScanError(errorMessage) {
+            //handle scan error
+        }
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess, onScanError);
+    </script>
 
+    <style>
+        .result {
+            background-color: green;
+            color: #fff;
+            padding: 20px;
+        }
 
-
+        .row {
+            display: flex;
+        }
+    </style> -->
+    <!--
     <div class="sitebody">
         <div class="main_left">
             <select id="guide-icon" style="width:200px; height: 30px; font-size: 18px;">
@@ -63,32 +87,98 @@
                 手機
             </div>
         </div>
+        -->
 
-        <div class="main_mid">
-            <p onclick="sayT()">
-                公告：<br>
-                X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
-            </p>
-            <br>
-            <!-- 做成大按鈕-->
-            <div name="" class="content">
-                <a href="http://127.0.0.1/ESG_blockchain/app/src/welcome_v0.html">1.簡單介紹</a>
-            </div><br><br>
-            <div name="" class="content">
-                <a href="http://127.0.0.1/ESG_blockchain/app/src/main_v0.html">2.主要功能</a>
-            </div><br><br>
-            <div name="" class="content">
-                <a href="http://127.0.0.1/ESG_blockchain/app/src/wallet_v2.html">3.我的錢包</a>
-            </div><br><br>
-            <div name="" class="content">
-                <a href="http://127.0.0.1/ESG_blockchain/app/src/transfer_v2.html">4.輕鬆轉帳</a>
-            </div><br><br>
-            <div name="" class="content">
-                <a href="http://127.0.0.1/ESG_blockchain/app/src/aboutus_v0.html">5.關於我們</a>
-            </div><br><br>
+
+    <div class="text-center">
+        <h1 class="text-success mt-3">
+            歡迎使用BCTIS！
+        </h1>
+        <h3 class="text-danger mt-3">
+            公告：
+        </h3>
+        <p class="text-dark mb-4">X X X X X X X X X X X X X X X X X X X </p>
+    </div>
+
+    <!--
+    <div class="container mb-3 col-md-6">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="d-flex justify-content-center">
+                    <form action="welcome.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width: 380px; height: 50px" value="簡單介紹" />
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <!--<button onclick="myFunction()">Click me</button> -->
-    </body>
+    -->
+
+    <div class="container col-12 col-lg-12 ">
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="d-flex justify-content-center">
+                    <form action="introduction.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width:380px; height:100px" value="網站介紹" />
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="d-flex justify-content-center">
+                    <form action="inquire.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width:380px; height:100px" value="查詢餘額" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container col-12 col-lg-12">
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="d-flex justify-content-center">
+                    <form action="wallet.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width:380px; height:100px" value="我的錢包(停用)" />
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="d-flex justify-content-center">
+                    <form action="transferETH.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width:380px; height:100px" value="ETH轉帳" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container col-12 col-lg-12">
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="d-flex justify-content-center">
+                    <form action="transferCC.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width:380px; height:100px" value="CC轉帳" />
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="d-flex justify-content-center">
+                    <form action="ConvertCC.html">
+                        <input type="submit" class="btn btn-info col-md-12" style="width:380px; height:100px" value="碳權轉換" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--更改背景顏色-->
+    <div class="col-12 col-lg-12 text-primary d-flex justify-content-center fixed-bottom">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <a href="introduction.html">關於我們</a>
+            </div>
+        </div>
+    </div>
+
+</body>
 
 </html>

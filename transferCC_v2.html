@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--清除快取-->
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <!--標題-->
+    <title>Introduction</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Bootstrap4/js/jquery-3.7.0.min.js" type="text/javascript"></script>
+    <script src="Bootstrap4/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/library.js" type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    <!--
+    <script src="html5-qrcode.min.js"></script>-->
+    <!--DAPP套件-->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="text/javascript"></script>
+    <script src="js/function.js" type="text/javascript"></script>
+    <script src="js/contract.js" type="text/javascript"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
+    <!--QRcode-->
+    <script src="js/jsQR-master/dist/jsQR.js"></script>
+
+</head>
+<body style="background-color:#FFFACD">
+    <!--NAVBAR-->
+    <nav class="topnav navbar navbar-expand-lg navbar-light fixed-top " style="background-color:#FFFACD">
+        <div class="container">
+            <a class="navbar-brand" href="index_v3.html">
+                <img src="icon/img/logo.png" style="width:150px;" />
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="font-size: 2rem">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_v3.html">
+                            首頁
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="introduction_v2.html">介紹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ConvertCC_v2.html">碳權轉換</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="transferETH_v2.html">ETH轉帳</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="transferCC_v2.html">CC轉帳</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_v3.html">關於我們</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_v3.html">聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('icon/img/pexels-david-mcbee-730552.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>CarbonCredits<br>轉帳</h1><br>
+                        <span class="subheading">BCTIS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+
+    <main class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7" style="font-size: 2rem">
+                    <button onclick="connectWalletCC()">連接帳號</button>
+                    <p id="account">Your Account: </p>
+
+                    <button onclick="getTokenName()">顯示ERC-20代幣名稱</button>
+                    <p id="CCbalance">Your CC Money: </p>
+
+                    <button onclick="getTokenBalance()">顯示ERC-20代幣數量</button>
+                    <p id="CCgetToken">ERC-20 CC: </p>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <form>
+                        <div class="form-group" style="font-size: 2rem">
+                            <label for="CCTransAcc">請輸入要轉入碳權的帳號： &nbsp;&nbsp;</label>
+                            <input type="tel" class="form-control" name="CCTransAcc" id="CCTransAcc" placeholder="eg：0xF66506386F97B164d8026CeefaF2F6F338D3C359" /><br>
+                            <label for="CCTransAccNum">請輸入要轉多少碳權： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <input type="tel" class="form-control" name="CCTransAccNum" id="CCTransAccNum" placeholder="10000" />
+                        </div><br />
+                    </form>
+                    <button id="startCamera" value="0" style="font-size: 2rem">開啟相機</button>
+                    <button id="startCamera" onclick="stopCamera()" style="font-size: 2rem">關閉相機</button>
+                    <video id="cameraView" autoplay></video>
+                    <p id="QRresult" style="font-size: 2rem">QRresult</p>
+                    <script src="js/camera.js" type="text/javascript"></script>
+
+                    <button onclick="transferCCButton()" id="transferCCButton" disabled style="font-size: 2rem">轉帳</button>
+                    <p id="transferCC" style="font-size: 2rem"></p>
+                </div>                
+            </div>
+        </div>
+    </main>
+   
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/Cheng_020330">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/profile.php?id=100007052950374">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/LyuYicheng/cheng.io.git">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">
+                        <strong>BCTIC</strong><br>
+                        Copyright &copy; Your Website 2023
+                    </div>
+                    <div class="small text-center">
+                        <a href="#" style="color:brown">回到頂端</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

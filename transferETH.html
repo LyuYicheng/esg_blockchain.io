@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- -->
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=divice-width, initial-scale=1, shrink-to-fit=no">--> <!--指定螢幕寬度為裝置寬度，讓網頁載入初始縮放比例為100%-->
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <!--清除快取-->
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <!--標題-->
+    <!--Bootstrap4套件-->
+    <link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="Bootstrap4/js/jquery-3.7.0.min.js"></script>
+    <script src="Bootstrap4/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/script.js"></script>
+    <!--DAPP套件-->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="text/javascript"></script>
+    <script src="js/function.js" type="text/javascript"></script>
+    <script src="js/contract.js" type="text/javascript"></script>
+</head>
+
+<body style="background-color:#FFFACD">
+    <!--頁首-->
+    <header>
+        <!--導覽頁-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index_v3.html">
+                <img src="icon/logo.png" style="width:180px;" />
+            </a>
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="introduction.html">關於我們</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            產品服務
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">技術書籍</a>
+                            <a class="dropdown-item" href="#">健保無限加</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">代理</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">聯絡我們</a>
+                </ul>
+                <!--
+                <div class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search"
+                           placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
+                </div>-->
+            </div>
+        </nav>
+    </header>
+    <div>由<a href="https://www.designevo.com/tw/" title="免費的線上標誌製做器">DesignEvo</a>製作的標誌</div>
+
+    <div class="text-center">
+        <a href="index_v3.html" title="上一頁">
+            <img src="icon/back.png" class="float-lg-start float-start" style="width:30px" alt="back" />
+        </a>
+        <h1 class="text-success mt-3">
+            BCTIS ETH轉帳功能
+        </h1>
+    </div>
+
+    <div class="container col-12 col-lg-12">
+        <div class="row">
+            <div class="col-lg-1 mt-3"></div>
+            <div class="col-12 col-lg-10 mt-3">
+                <button onclick="connectWalletETH()">連接帳號</button>
+                <p id="account">Your Account: </p>
+
+                <button onclick="showMoney()">顯示餘額</button>
+                <p id="balance">Your Money: </p>
+
+                <button onclick="runContract()">顯示合約內容</button>
+                <p id="contract">Contract: </p>
+            </div>
+            <div class="col-lg-1 mt-3"></div>
+        </div>
+    </div>
+
+    <div class="container col-12 col-lg-12">
+        <div class="row">
+            <div class="col-lg-1 mt-3"></div>
+            <div class="col-12 col-lg-10 mt-3">
+                <form>
+                    <div class="form-group">
+                        <label for="TransAcc">請輸入要轉入乙太幣的帳號： &nbsp;&nbsp;</label>
+                        <input type="tel" class="form-control" name="TransAcc" id="TransAcc" placeholder="eg：0xF66506386F97B164d8026CeefaF2F6F338D3C359" /><br>
+                        <label for="TransAccNum">請輸入要轉多少乙太幣： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="tel" class="form-control" name="TransAccNum" id="TransAccNum" placeholder="10000" />
+                    </div><br />
+                </form>
+                <button onclick="transferEthButton()" id="transferEthButton" disabled>轉帳</button>
+                <p id="transferETH"></p>
+            </div>
+        </div>
+    </div>
+
+    <!--上面區塊要更改一下-->
+    <div class="col-12 col-lg-12 text-primary d-flex justify-content-center fixed-bottom">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <a href="introduction.html">關於我們</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
