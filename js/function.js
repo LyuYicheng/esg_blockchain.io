@@ -1,3 +1,24 @@
+//頁面載入完成後，讓目前所在網頁的導覽列底色變動
+window.onload = function () {
+    var currentUrl = window.location.href;
+    if (currentUrl.includes("index_v3.html")) {
+        document.getElementById("index3").style.backgroundColor = "blueviolet";
+        document.getElementById("index3").style.color = "white";
+    } else if (currentUrl.includes("introduction_v2.html")) {
+        document.getElementById("intro2").style.backgroundColor = "blueviolet";
+        document.getElementById("intro2").style.color = "white";
+    } else if (currentUrl.includes("ConvertCC_v2.html")) {
+        document.getElementById("Convert2").style.backgroundColor = "blueviolet";
+        document.getElementById("Convert2").style.color = "white";
+    } else if (currentUrl.includes("transferETH_v2.html")) {
+        document.getElementById("transETH2").style.backgroundColor = "blueviolet";
+        document.getElementById("transETH2").style.color = "white";
+    } else if (currentUrl.includes("transferCC_v2.html")) {
+        document.getElementById("transCC2").style.backgroundColor = "blueviolet";
+        document.getElementById("transCC2s").style.color = "white";
+    } else
+        alert("error");
+}
 
 // 連接錢包(ETH)
 async function connectWalletETH() {
@@ -13,6 +34,7 @@ async function connectWalletETH() {
 
     // 有連到帳戶則顯示
     if (accounts.length > 0) {
+        
         // 顯示連接帳戶名稱
         document.getElementById("account").innerText = "Your Account: " + accounts[0];
         // 讓ETH轉帳按鈕能點擊
@@ -63,7 +85,7 @@ async function showMoney() {
     if (typeof window.ethereum === "undefined") {
         alert("plz install wallet first!");
         return;
-    } 
+    }
     // 獲取MetaMask的帳戶地址
     let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     // 使用MetaMask提供的Provider
@@ -234,10 +256,7 @@ async function TransKM() {
     
 }
 
-
 function select() {
     var selected = document.getElementById("tool_type").value;
     console.log(selected);
 }
-
-
