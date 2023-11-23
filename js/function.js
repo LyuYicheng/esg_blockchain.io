@@ -2,22 +2,17 @@
 window.onload = function () {
     var currentUrl = window.location.href;
     if (currentUrl.includes("index_v3.html")) {
-        document.getElementById("index3").style.backgroundColor = "blueviolet";
-        document.getElementById("index3").style.color = "white";
+        document.getElementById("index3").style.color = "blueviolet";
     } else if (currentUrl.includes("introduction_v2.html")) {
-        document.getElementById("intro2").style.backgroundColor = "blueviolet";
-        document.getElementById("intro2").style.color = "white";
+        document.getElementById("intro2").style.color = "blueviolet";
     } else if (currentUrl.includes("ConvertCC_v2.html")) {
-        document.getElementById("Convert2").style.backgroundColor = "blueviolet";
-        document.getElementById("Convert2").style.color = "white";
+        document.getElementById("Convert2").style.color = "blueviolet";
     } else if (currentUrl.includes("transferETH_v2.html")) {
-        document.getElementById("transETH2").style.backgroundColor = "blueviolet";
-        document.getElementById("transETH2").style.color = "white";
+        document.getElementById("transETH2").style.color = "blueviolet";
     } else if (currentUrl.includes("transferCC_v2.html")) {
-        document.getElementById("transCC2").style.backgroundColor = "blueviolet";
-        document.getElementById("transCC2s").style.color = "white";
+        document.getElementById("transCC2").style.color = "blueviolet";
     } else
-        alert("error");
+        console.log("error");
 }
 
 // 連接錢包(ETH)
