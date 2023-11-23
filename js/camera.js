@@ -29,10 +29,8 @@ startCameraButton.addEventListener('click', async () => {
                 const element = document.getElementById('QRresult');
                 //通過location對象的href屬性獲取當前頁面的URL
                 const currentUrl = location.href;
-                const pageURL = document.getElementById('pageURL');
                 //若是transferETH就把QRcode內容填入對應表格
                 if (currentUrl.indexOf('transferETH') > -1) {
-                    pageURL.textContent = 'Current page: ' + currentUrl;
                     if (element) {
                         //找到要填寫的<input>
                         const AccInput = document.getElementById('TransAcc');
@@ -44,7 +42,6 @@ startCameraButton.addEventListener('click', async () => {
                         element.textContent = 'Acc: ' + Acc + ' AccNum: ' + AccNum;
                     }
                 } else if (currentUrl.includes('transferCC')) {
-                    pageURL.textContent = 'Current page: ' + currentUrl;
                     if (element) {
                         //找到要填寫的<input>
                         const AccInput = document.getElementById('CCTransAcc');
