@@ -53,7 +53,6 @@ startCameraButton.addEventListener('click', async () => {
                         element.textContent = 'Acc: ' + Acc + ' AccNum: ' + AccNum;
                     }
                 } else if (currentUrl.includes('ConvertCC')) {
-                    pageURL.textContent = 'Current page: ' + currentUrl;
                     //§ä¨ì­n¶ñ¼gªº<select>
                     const TransSelect = document.getElementById('Transportation');
                     const TransKMSelect = document.getElementById('TransKM');
