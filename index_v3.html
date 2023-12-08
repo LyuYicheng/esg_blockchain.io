@@ -49,30 +49,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse" id="navbarColor02" style="font-size: 2rem">
-                    <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    <ul class="navbar-nav mx-auto d-flex align-items-center justify-content-between w-75">
                         <li class="nav-item">
-                            <a class="nav-link" href="index_v3.html">
+                            <a class="nav-link" id="index3" href="index_v3.html">
                                 首頁
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="introduction_v2.html">介紹</a>
+                            <a class="nav-link" id="intro2" href="introduction_v2.html">介紹</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ConvertCC_v2.html">碳權轉換</a>
+                            <a class="nav-link" id="Convert2" href="ConvertCC_v2.html">碳權轉換</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transferETH_v2.html">ETH轉帳</a>
+                            <a class="nav-link" id="transETH2" href="transferETH_v2.html">ETH轉帳</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transferCC_v2.html">CC轉帳</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index_v3.html">關於我們</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index_v3.html">聯絡我們</a>
+                            <a class="nav-link" id="transCC2" href="transferCC_v2.html">CC轉帳</a>
                         </li>
                     </ul>
                 </div>
@@ -89,7 +83,7 @@
                     <h2>網站介紹</h2>
                     <p>功能導覽以及相關問題回答</p>
                     <p>
-                        <a class="btn btn-info" href="introduction_v2.html"  style="font-size: 1rem">點此前往</a>
+                        <a class="btn btn-info" href="introduction_v2.html" style="font-size: 1rem">點此前往</a>
                     </p>
                 </div>
             </div>
@@ -118,7 +112,7 @@
             </div>
             <div class="col-12 col-sm-6 top-margin">
                 <div class="img-thumbnail" style="background-color:lavender">
-                    <img class="rounded" src="icon/img/istockphoto-474976028-612x612.jpg"  width="620" style="max-width:100%" />
+                    <img class="rounded" src="icon/img/istockphoto-474976028-612x612.jpg" width="620" style="max-width:100%" />
                     <h2>CC轉帳</h2>
                     <p>
                         碳權CarbonCredits轉帳<br>
@@ -132,65 +126,70 @@
         </div>
     </div>
     <hr>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="title2">BCTIS-專屬於您的轉帳超人</h2>
-            <p class="lead" style="font-size: 30px">
-                熟悉的感覺，讓您放心，讓您安心。我們是您的專屬轉帳超人，24小時隨傳隨到，提供快速可靠的轉帳服務，全年無休。
-            </p>
-            <p class="lead" style="font-size: 30px">
-                我們深知每一次轉帳的重要性，會全力以赴完成每筆任務。不論金額大小，我們都一視同仁，給予最認真的服務。加入我們，輕鬆體驗安心轉帳的感覺。熟悉的服務，值得您信賴。
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="icon/CP&P.jpg" width="500"/>
+    <div class="container introduction">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <h2 class="title2">BCTIS-專屬於您的轉帳超人</h2>
+                <p class="lead" style="font-size: 30px">
+                    熟悉的感覺，讓您放心，讓您安心。我們是您的專屬轉帳超人，24小時隨傳隨到，提供快速可靠的轉帳服務，全年無休。
+                </p>
+                <p class="lead" style="font-size: 30px">
+                    我們深知每一次轉帳的重要性，會全力以赴完成每筆任務。不論金額大小，我們都一視同仁，給予最認真的服務。加入我們，輕鬆體驗安心轉帳的感覺。熟悉的服務，值得您信賴。
+                </p>
+            </div>
+            <div class="col-12 col-sm-6">
+                <img src="icon/CP&P.jpg" width="800" />
+            </div>
         </div>
     </div>
-    <hr />
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="title2">聯絡我們</h2>
-            <div class="form-group">
-                <label for="txtName">寄件人姓名</label>
-                <input type="text" class="form-control" name="txtName" id="txtName" required />
+    <hr>
+    <div class="container link">
+        <div class="row">
+            <!--
+            <div class="col-md-7 order-md-2">
+                <h2 class="title2">聯絡我們</h2>
+                <div class="form-group">
+                    <label for="txtName">寄件人姓名</label>
+                    <input type="text" class="form-control" name="txtName" id="txtName" required />
+                </div>
+                <div class="form-group">
+                    <label for="txtEmail">信箱</label>
+                    <input type="email" class="form-control" name="txtEmail" id="txtEmail" required />
+                </div>
+                <div class="form-group">
+                    <label for="msg">訊息</label>
+                    <textarea class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%">傳送</button>
+            </div>-->
+            <div class="col-md-5 order-md-1">
+                <h2 class="title2" id="Links">聯絡方式</h2>
+                <ul>
+                    <li style="margin-top:15px">PhoneNumber: 0928008330</li>
+                    <li style="margin-top:15px">
+                        E-mail: 
+                        <a href="mailto:4A9G0910@stust.edu.tw" style="color: cornflowerblue">4A9G0910@stust.edu.tw</a></li>
+                    <li style="margin-top:15px">
+                        Line:
+                        <a href="https://line.me/ti/p/tSNmfjERV4" style="color: cornflowerblue" title="instagram personal profile" target="_blank">0928008330</a>
+                    </li>
+                    <li style="margin-top:15px">
+                        Facebook:
+                        <a href="https://www.facebook.com/profile.php?id=100007052950374"  style="color: cornflowerblue" title="Facebook personal profile" target="_blank">Yi-Cheng Lyu</a>
+                    </li>
+                    <li style="margin-top:15px">
+                        Instergram:
+                        <a href="https://www.instagram.com/lyu_yi_cheng/"  style="color: cornflowerblue" title="Instagram personal profile" target="_blank"> lyu_yi_cheng</a>
+                    </li>
+                    <li style="margin-top:15px">
+                        X(Twitter):
+                        <a href="https://twitter.com/Cheng_020330" style="color: cornflowerblue" title="X personal profile" target="_blank">Cheng_020330</a>
+                    </li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="txtEmail">信箱</label>
-                <input type="email" class="form-control" name="txtEmail" id="txtEmail" required />
-            </div>
-            <div class="form-group">
-                <label for="msg">訊息</label>
-                <textarea class="form-control" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%">傳送</button>
         </div>
-        <div class="col-md-5 order-md-1">
-            <h2 class="title2">聯絡方式</h2>
-            <ul>
-                <li style="margin-top:15px">PhoneNumber: 0928008330</li>
-                <li style="margin-top:15px">E-mail: 4A9G0910@stust.edu.tw</li>
-                <li style="margin-top:15px">
-                    Line:
-                    <a href="https://line.me/ti/p/tSNmfjERV4" title="instagram personal profile" target="_blank">0928008330</a>
-                </li>
-                <li style="margin-top:15px">
-                    Facebook:
-                    <a href="https://www.facebook.com/profile.php?id=100007052950374" title="Facebook personal profile" target="_blank">Yi-Cheng Lyu</a>
-                </li>
-                <li style="margin-top:15px">
-                    Instergram:
-                    <a href="https://www.instagram.com/lyu_yi_cheng/" title="Instagram personal profile" target="_blank"> lyu_yi_cheng</a>
-                </li>
-                <li style="margin-top:15px">
-                    X(Twitter):
-                    <a href="https://twitter.com/Cheng_020330" title="X personal profile" target="_blank">Cheng_020330</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!--------------------------------------
-    FOOTER
-    --------------------------------------->
+    </div><br />
+
     <!-- Footer-->
     <footer class="border-top">
         <div class="container px-4 px-lg-5">

@@ -1,3 +1,19 @@
+//頁面載入完成後，讓目前所在網頁的導覽列底色變動
+window.onload = function () {
+    var currentUrl = window.location.href;
+    if (currentUrl.includes("index_v3.html")) {
+        document.getElementById("index3").style.color = "blueviolet";
+    } else if (currentUrl.includes("introduction_v2.html")) {
+        document.getElementById("intro2").style.color = "blueviolet";
+    } else if (currentUrl.includes("ConvertCC_v2.html")) {
+        document.getElementById("Convert2").style.color = "blueviolet";
+    } else if (currentUrl.includes("transferETH_v2.html")) {
+        document.getElementById("transETH2").style.color = "blueviolet";
+    } else if (currentUrl.includes("transferCC_v2.html")) {
+        document.getElementById("transCC2").style.color = "blueviolet";
+    } else
+        console.log("error");
+}
 
 // 連接錢包(ETH)
 async function connectWalletETH() {
@@ -13,6 +29,7 @@ async function connectWalletETH() {
 
     // 有連到帳戶則顯示
     if (accounts.length > 0) {
+        
         // 顯示連接帳戶名稱
         document.getElementById("account").innerText = "Your Account: " + accounts[0];
         // 讓ETH轉帳按鈕能點擊
@@ -53,8 +70,14 @@ async function connectWalletCV() {
     if (accounts.length > 0) {
         // 顯示連接帳戶名稱
         document.getElementById("account").innerText = "Your Account: " + accounts[0];
-        // 讓CC轉帳按鈕能點擊
-        document.getElementById('transferCVButton').disabled = false;
+        
+        // 讓要求CC按鈕能點擊
+        document.getElementById('transferTokens').disabled = false;
+        const Account = "0x78b41c0621c76c6b9961777b55d68dae0f2dd2f7"
+        if (accounts[0] == Account) {
+            // 讓授權帳號按鈕能點擊
+            document.getElementById('approveTokens').disabled = false;
+        }     
     }
 }
 
@@ -63,7 +86,7 @@ async function showMoney() {
     if (typeof window.ethereum === "undefined") {
         alert("plz install wallet first!");
         return;
-    } 
+    }
     // 獲取MetaMask的帳戶地址
     let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     // 使用MetaMask提供的Provider
@@ -88,6 +111,95 @@ async function runContract() {
     // 使用合約之函數( greet() )
     let result = await contract.greet();
     document.getElementById("contract").innerText = "Contract: " + result;
+}
+// 使用合約 發送代幣
+async function runContract_1() {
+    if (typeof window.ethereum === "undefined") {
+        alert("plz install wallet first!");
+        return;
+    }
+    // 使用MetaMask提供的Provider
+    let provider = new ethers.providers.Web3Provider(window.ethereum);
+    // 調用已發布之合約
+    let contract = new ethers.Contract(contractAddressCC, contractAbiCC, provider.getSigner());
+    // 使用合約之函數()
+    let result = await contract.totalSupply(); 
+    document.getElementById("contract_1").innerText = "Contract: " + result;
+}
+
+async function runContract_2() {
+    if (typeof window.ethereum === "undefined") {
+        alert("plz install wallet first!");
+        return;
+    }
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(contractAddressCC, contractAbiCC, provider.getSigner());
+    let amount = 3.2e+21;
+    let tx = await contract.mint(amount);
+    await tx.wait();
+    let totalSupply = await contract.totalSupply();
+    document.getElementById("contract_2").innerText = totalSupply;
+}
+
+async function runContract_3() {
+    if (typeof window.ethereum === "undefined") {
+        alert("plz install wallet first!");
+        return;
+    }
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(contractAddressCC, contractAbiCC, provider.getSigner());
+    try {
+        let spender = "0x1F2D4253Bae3C3eF00c38C80d8130Ce65CF6D815";
+        let amount = 1000;
+        let result = await contract.approve(spender, amount);
+
+        console.log("Transaction Hash:", result.hash);
+        console.log("Transaction Receipt:", await result.wait());
+
+        alert("sccess");
+    } catch (error) {
+        console.error("Error:", error);
+        alert("error");
+    }
+}
+
+async function approveTokens() {
+    if (typeof window.ethereum === "undefined") {
+        alert("Please install a wallet first!");
+        return;
+    }
+    //0x1F2D4253Bae3C3eF00c38C80d8130Ce65CF6D815
+    const inputElement = document.getElementsByTagName('input');
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(contractAddressCC, contractAbiCC, provider.getSigner());
+    const GetCC = inputElement[1].value;
+    const GetCCA = inputElement[2].value;
+    const amountToApprove = ethers.utils.parseEther(GetCC);
+    let approveTx = await contract.approve(GetCCA, amountToApprove);
+    await approveTx.wait();
+}
+
+async function transferTokens() {
+    if (typeof window.ethereum === "undefined") {
+        alert("plz install wallet first!");
+        return;
+    }
+    let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const inputElement = document.getElementsByTagName('input');
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(contractAddressCC, contractAbiCC, provider.getSigner());
+    const GetCC = inputElement[1].value;
+    const amountToApprove = ethers.utils.parseEther(GetCC);
+
+    const allowance = await contract.allowance("0x78b41C0621c76c6B9961777B55D68dAE0f2DD2f7", accounts[0]);
+
+    if (allowance < GetCC) {
+        alert("allowance not enough")
+    }
+    else {
+        let transferFromTx = await contract.transferFrom("0x78b41C0621c76c6B9961777B55D68dAE0f2DD2f7", accounts[0], amountToApprove);
+        await transferFromTx.wait();
+    }    
 }
 
 // ETH轉帳
@@ -154,7 +266,7 @@ async function getTokenBalance() {
     // 獲取CC的balance
     const balance = await tokenContract.balanceOf(accounts[0]);
     const thisCC = ethers.utils.formatUnits(balance, 18);
-    document.getElementById("CCgetToken").innerText = "ERC-20 CC: " + thisCC + "CC";
+    document.getElementById("CCgetToken").innerText = "CC: " + thisCC + " CC";
 }
 
 // CC轉帳
@@ -232,10 +344,4 @@ async function TransKM() {
             document.getElementById("MustpayCC").innerHTML = "error";
     }
     
-}
-
-
-function select() {
-    var selected = document.getElementById("tool_type").value;
-    console.log(selected);
 }

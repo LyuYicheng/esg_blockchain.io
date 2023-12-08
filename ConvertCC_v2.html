@@ -25,10 +25,10 @@
     <script src="js/vendor/jquery.min.js" type="text/javascript"></script>
     <script src="js/vendor/popper.min.js" type="text/javascript"></script>
     <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
-    <script src="Bootstrap4/js/jquery-3.7.0.min.js" type="text/javascript"></script>
-    <script src="Bootstrap4/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/library.js" type="text/javascript"></script>
-    <script src="js/script.js" type="text/javascript"></script>
+    <script src="Bootstrap4/js/jquery-3.7.0.min.js"></script>
+    <script src="Bootstrap4/js/bootstrap.min.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/script.js"></script>
     <!--
     <script src="html5-qrcode.min.js"></script>-->
     <!--DAPP套件-->
@@ -43,7 +43,7 @@
 <body style="background-color:#FFFACD">
     <!--NAVBAR-->
     <nav class="topnav navbar navbar-expand-lg navbar-light fixed-top " style="background-color:#FFFACD">
-        <div class="container">
+        <div class="container" style="background-color:#FFFACD">
             <a class="navbar-brand" href="index_v3.html">
                 <img src="icon/img/logo.png" style="width:150px;" />
             </a>
@@ -51,30 +51,24 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarColor02" style="font-size: 2rem">
-                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                <ul class="navbar-nav mx-auto d-flex align-items-center justify-content-between w-75">
                     <li class="nav-item">
-                        <a class="nav-link" href="index_v3.html">
+                        <a class="nav-link" id="index3" href="index_v3.html">
                             首頁
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="introduction_v2.html">介紹</a>
+                        <a class="nav-link" id="intro2" href="introduction_v2.html">介紹</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ConvertCC_v2.html">碳權轉換</a>
+                        <a class="nav-link" id="Convert2" href="ConvertCC_v2.html">碳權轉換</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="transferETH_v2.html">ETH轉帳</a>
+                        <a class="nav-link" id="transETH2" href="transferETH_v2.html">ETH轉帳</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="transferCC_v2.html">CC轉帳</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index_v3.html">關於我們</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index_v3.html">聯絡我們</a>
+                        <a class="nav-link" id="transCC2" href="transferCC_v2.html">CC轉帳</a>
                     </li>
                 </ul>
             </div>
@@ -95,14 +89,14 @@
         </div>
     </header>
 
-    <script src="js/camera.js" type="text/javascript"></script>
+
     <!-- Main Content-->
     <main class="mb-4">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
 
                 <div class="col-md-10 col-lg-8 col-xl-7" style="font-size: 2rem">
-                    <button onclick="connectWalletCV()">連接帳號</button>
+                    <button onclick="connectWalletCV()">連接帳戶</button>
                     <p id="account">Your Account: </p>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -117,6 +111,13 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;機車:     1(L)  * (-0.01)   = -0.01(CC)<br />
                             &nbsp;&nbsp;&nbsp;&nbsp;汽車:     1(L)  * (-0.0075) = -0.0075(CC)<br />
                         </p>
+                    </form>
+                    <button id="startCamera" style="font-size: 2rem">開啟相機</button>
+                    <button id="stopCamera" style="font-size: 2rem">關閉相機</button>
+                    <video id="cameraView" autoplay></video>
+                    <p id="QRresult" style="font-size: 2rem">QRresult</p>
+                    <script src="js/camera.js" type="text/javascript"></script>
+                    <form style="font-size: 2rem">
                         <label for="Transportation" style="font-size: 2rem">請選擇交通工具</label>
                         <select class="form-control" id="Transportation">
                             <option value="0">腳踏車</option>
@@ -127,48 +128,109 @@
                         </select>
                     </form>
                     <label for="TransKM">請輸入搭乘公里數： &nbsp;&nbsp;</label>
-                    <input type="tel" class="form-control" name="TransKM" id="TransKM" placeholder="eg：10" style="font-size: 2rem"/><br>
-
-                    <button id="startCamera" value="0" style="font-size: 2rem">開啟相機</button>
-                    <button id="startCamera" onclick="stopCamera()" style="font-size: 2rem">關閉相機</button>
-                    <video id="cameraView" autoplay></video>
-                    <p id="QRresult" style="font-size: 2rem">QRresult</p>
-                    <script src="js/camera.js" type="text/javascript"></script>
+                    <input type="tel" class="form-control" name="TransKM" id="TransKM" placeholder="eg：10" /><br>
 
                     <button onclick="TransKM()" id="TransKM" style="font-size: 2rem">確認</button>
                     <p id="YourTransportation" style="font-size: 2rem">Your choice of transportation: </p>
                     <p id="MustpayCC" style="font-size: 2rem">You have to pay: </p>
-                </div>
-                <!--
+                </div><hr />
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <br>
-                    <div id="item">
-                        <label style="font-weight:bold;">下拉選單：</label>
-                        <select id="tool_type" name="tool_type" style="cursor:pointer;" class="selectpicker ml-1 mb-2" data-width="150px" onchange="select()">
-                            <option value="0">請選擇</option>
-                            <option value="1">選項1</option>
-                            <option value="2">選項2</option>
-                            <option value="3">選項3</option>
-                            <option value="4">選項4</option>
-                        </select>
-                    </div>
-                    <form>
-                        <div class="form-group">
-                            <p> CC to ETH (1CC can convert 0.0001ETH 查一下ETH匯率)</p>
-                            <label for="">請輸入要轉入碳權的帳號： &nbsp;&nbsp;</label>
-                            <input type="tel" class="form-control" name="" id="" placeholder="eg：0xF66506386F97B164d8026CeefaF2F6F338D3C359" /><br>
-                            <label for="">請輸入要換多少碳權： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="tel" class="form-control" name="" id="" placeholder="10000" />
-                        </div><br />
-                    </form>
-                    <button onclick="" id="transferCVButton" disabled>convert</button>
-                    <p id=""></p>
+                    <p class="mb-3">
+                        若要向我們請求碳權代幣請先付款至此帳戶:<br />
+                    </p>
+                    <p class="mb-3" style="color: brown">
+                        0x78b41C0621c76c6B9961777B55D68dAE0f2DD2f7<br />
+                    </p>
+                    <p class="mb-3">
+                        並告知您要換算的金額、您的轉帳證明、以及您的錢包帳戶<br />
+                    </p>
+                    <p class="mb-3">
+                        1 CC = 0.001ETH <br />
+                        (代表如果想向我們請求"1"碳權代幣就要向我們轉帳"0.001"乙太幣) <br />
+                        <a href="index_v3.html#Links" style="color: blueviolet">點此前往聯絡我們</a>
+                    </p>
+                </div>
 
-                </div> -->
+                <div class="col-md-10 col-lg-8 col-xl-7" style="font-size: 2rem">
+                    <label for="GetCC">請輸入要獲得的碳權數量(單位: CC)： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="tel" class="form-control" name="GetCC" id="GetCC" placeholder="eg：10" />
+                    <label for="GetCCA">請輸入要獲得的帳號： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="tel" class="form-control" name="GetCCA" id="GetCCA" placeholder="eg：0xF66506386F97B164d8026CeefaF2F6F338D3C359" /><br>
+                    <button onclick="approveTokens()" id="approveTokens" disabled>授權帳號</button><br><br>
+                    <button onclick="transferTokens()" id="transferTokens" disabled>要求CC</button>
+                </div>
             </div>
         </div>
-    </main>
-
+    </main><hr />
+    <div class="container pt-4 pb-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-12">
+                <h1 class="secondfont mb-1 font-weight-bold">使用教學</h1>
+                <p class="h5 card-text">
+                    第一次使用嗎? 請先到這裡查看安裝教學 <a href="MetaMask_teach.html" style="color: mediumblue">MetaMask_teach</a>
+                </p><br>
+                <p class="h3 card-text">
+                    Step1: 連接帳戶<br>
+                </p>
+                <p class="h5">
+                    <img src="icon/Step/S3-1.png" width="900" />
+                    <img src="icon/Step/S3-2.png" width="300" />
+                </p>
+                <p class="h5 text-center">
+                    <img src="icon/Step/S3-3.png" width="900" />
+                </p><hr />
+                <p class="h3 card-text">
+                    Step2: 換算交通工具所需之碳權<br>
+                    若是正碳權可得到碳權，反之需支付碳權。<br>
+                    若不需此功能則直接跳到
+                    <a href="ConvertCC_v2.html#Step4" style="color: blueviolet">Step4</a><br>
+                </p>
+                <p class="h5">
+                    <img src="icon/Step/S3-4.png" width="650" />
+                    <img src="icon/Step/S3-5.png" width="650" />
+                </p>
+                <p class="h3 card-text">
+                    Step3: 完成換算<br>
+                </p>
+                <p class="h5 text-center">
+                    <img src="icon/Step/S3-6.png" width="550" />
+                </p><hr />
+                <p class="h5">
+                    <img src="icon/Step/S3-7.png" width="600" />
+                    <img src="icon/Step/S3-8.png" width="600" />
+                </p><hr />
+                <p class="h3 card-text" id="Step4">
+                    Step4: 向我們要求碳權
+                </p>
+                <p class="h5 card-text" id="Step4">
+                    <a href="transferETH_v2.html" style="color: brown">點此前往ETH轉帳</a><br>
+                </p>
+                <p class="h5 card-text" id="Step4">
+                    <a href="index_v3.html#Links" style="color: blueviolet">點此前往聯絡我們</a><br>
+                </p>
+                <p class="h4 card-text" style="color: red">
+                    注意: 必須等我們回信才可以執行以下動作!!!
+                </p>
+                <p class="h5">
+                    <img src="icon/Step/S3-9.png" width="550" />
+                    <img src="icon/Step/S3-10.png" width="650" />
+                </p>
+                <p class="h5">
+                    <img src="icon/Step/S3-11.png" width="350" />
+                    <img src="icon/Step/S3-12.png" width="400" />
+                </p><hr />
+                <p class="h3 card-text">
+                    Step5: 確認是否領到碳權代幣<br />
+                    若沒領到->
+                    <a href="index_v3.html#Links" style="color: blueviolet">點此前往聯絡我們</a><br>
+                </p>
+                <p class="h5">
+                    <img src="icon/Step/S3-13.png" width="400" />
+                    <img src="icon/Step/S3-14.png" width="400" />
+                </p>
+            </div>
+        </div>
+    </div>
     <!-- Footer-->
     <footer class="border-top">
         <div class="container px-4 px-lg-5">
