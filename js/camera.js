@@ -39,7 +39,7 @@ startCameraButton.addEventListener('click', async () => {
                         AccInput.value = Acc;
                         AccNumInput.value = AccNum;
                         //顯示結果到網頁
-                        element.textContent = 'Acc: ' + Acc + ' AccNum: ' + AccNum;
+                        //element.textContent = 'Acc: ' + Acc + ' AccNum: ' + AccNum;
                     }
                 } else if (currentUrl.includes('transferCC')) {
                     if (element) {
@@ -50,10 +50,9 @@ startCameraButton.addEventListener('click', async () => {
                         AccInput.value = Acc;
                         AccNumInput.value = AccNum;
                         //顯示結果到網頁
-                        element.textContent = 'Acc: ' + Acc + ' AccNum: ' + AccNum;
+                        //element.textContent = 'Acc: ' + Acc + ' AccNum: ' + AccNum;
                     }
                 } else if (currentUrl.includes('ConvertCC')) {
-                    pageURL.textContent = 'Current page: ' + currentUrl;
                     //找到要填寫的<select>
                     const TransSelect = document.getElementById('Transportation');
                     const TransKMSelect = document.getElementById('TransKM');
@@ -80,7 +79,7 @@ startCameraButton.addEventListener('click', async () => {
                         default:
                     }
                     //顯示結果到網頁
-                    element.textContent = 'Transportation: ' + Trans + ' TransKM: ' + TransKM;
+                    //element.textContent = 'Transportation: ' + Trans + ' TransKM: ' + TransKM;
                 }
 
             }, 1000);

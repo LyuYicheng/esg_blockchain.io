@@ -31,7 +31,7 @@ async function connectWalletETH() {
     if (accounts.length > 0) {
         
         // 顯示連接帳戶名稱
-        document.getElementById("account").innerText = "Your Account: " + accounts[0];
+        document.getElementById("account").innerText = accounts[0];
         // 讓ETH轉帳按鈕能點擊
         document.getElementById('transferEthButton').disabled = false;
     }
@@ -48,7 +48,7 @@ async function connectWalletCC() {
     // 有連到帳戶則顯示
     if (accounts.length > 0) {
         // 顯示連接帳戶名稱
-        document.getElementById("account").innerText = "Your Account: " + accounts[0];
+        document.getElementById("account").innerText = accounts[0];
         // 讓CC轉帳按鈕能點擊
         document.getElementById('transferCCButton').disabled = false;
     }
@@ -69,7 +69,7 @@ async function connectWalletCV() {
     // 有連到帳戶則顯示
     if (accounts.length > 0) {
         // 顯示連接帳戶名稱
-        document.getElementById("account").innerText = "Your Account: " + accounts[0];
+        document.getElementById("account").innerText = accounts[0];
         
         // 讓要求CC按鈕能點擊
         document.getElementById('transferTokens').disabled = false;
@@ -95,7 +95,7 @@ async function showMoney() {
     const balance = await provider.getBalance(accounts[0]);
     // 將wei轉換為ether並格式化顯示
     const balanceInEther = ethers.utils.formatEther(balance);
-    document.getElementById("balance").innerText = "Your Money: " + balanceInEther + " ETH";
+    document.getElementById("balance").innerText = balanceInEther + " ETH";
 }
 
 // 使用合約
@@ -266,7 +266,7 @@ async function getTokenBalance() {
     // 獲取CC的balance
     const balance = await tokenContract.balanceOf(accounts[0]);
     const thisCC = ethers.utils.formatUnits(balance, 18);
-    document.getElementById("CCgetToken").innerText = "CC: " + thisCC + " CC";
+    document.getElementById("CCgetToken").innerText = thisCC + " CC";
 }
 
 // CC轉帳
@@ -317,31 +317,30 @@ async function TransKM() {
     var inputElement = document.getElementById("TransKM");
     // 獲取input之value
     var inputValue = inputElement.value;
-
-    document.getElementById("YourTransportation").innerHTML = "Your choice of transportation: " + selectedText;
+    document.getElementById("YourTransportation").innerHTML = "\u4F60\u9078\u64C7\u7684\u4EA4\u901A\u5DE5\u5177\u662F: " + selectedText;
     switch (selectedValue) {
         case "0": //腳踏車
             sum = inputValue * 0.01;
-            document.getElementById("MustpayCC").innerHTML = "You will get: " + sum + " CC";
+            document.getElementById("MustpayCC").innerHTML = "\u4F60\u6703\u5F97\u5230: " + sum + " CC";
             break;
         case "1": //公車
             sum = inputValue * 0.0075;
-            document.getElementById("MustpayCC").innerHTML = "You will get: " + sum + " CC";
+            document.getElementById("MustpayCC").innerHTML = "\u4F60\u6703\u5F97\u5230: " + sum + " CC";
             break;
         case "2": //火車
             sum = inputValue * 0.005;
-            document.getElementById("MustpayCC").innerHTML = "You will get: " + sum + " CC";
+            document.getElementById("MustpayCC").innerHTML = "\u4F60\u6703\u5F97\u5230: " + sum + " CC";
             break;
         case "3": //機車
             sum = inputValue * 0.01;
-            document.getElementById("MustpayCC").innerHTML = "You have to pay: " + sum + " CC";
+            document.getElementById("MustpayCC").innerHTML = "\u4F60\u9700\u652F\u4ED8: " + sum + " CC";
             break;
         case "4": //汽車
             sum = inputValue * 0.0075;
-            document.getElementById("MustpayCC").innerHTML = "You have to pay: " + sum + " CC";
+            document.getElementById("MustpayCC").innerHTML = "\u4F60\u9700\u652F\u4ED8: " + sum + " CC";
             break;
         default:
-            document.getElementById("MustpayCC").innerHTML = "error";
+            alert("\u8ACB\u9078\u64C7\u4EA4\u901A\u5DE5\u5177\u6216\u586B\u5BEB\u516C\u91CC\u6578");
+            break;
     }
-    
 }
